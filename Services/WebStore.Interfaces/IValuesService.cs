@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace Services.WebStore.Interfaces
 {
-   public interface IValuesService
+    public interface IValuesService
    {
         IEnumerable<string> Get();
 
         Task<IEnumerable<string>> GetAsync();
 
         string Get(int id);
-        Task<IEnumerable<string>> GetAsync(int id);
+        Task<string> GetAsync(int id);
 
         Uri Post(string value);
 
