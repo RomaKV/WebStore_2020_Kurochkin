@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Common.WebStore.DomainNew.Entities;
+using Common.WebStore.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using UI.WebStore.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

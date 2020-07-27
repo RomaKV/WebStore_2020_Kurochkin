@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Common.WebStore.Domain;
+﻿using Common.WebStore.Domain;
+using Common.WebStore.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
-using UI.WebStore.Infrastructure.Interfaces;
-using UI.WebStore.Models;
+using Services.WebStore.Infrastructure.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace UI.WebStore.Infrastructure.Services
 {

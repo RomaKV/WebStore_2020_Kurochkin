@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace UI.WebStore.Models
+namespace Common.WebStore.ViewModels
 {
     public class EmployeeViewModel
     {

@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Common.WebStore.ViewModels;
+using Services.WebStore.Infrastructure.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
-using UI.WebStore.Infrastructure.Interfaces;
-using UI.WebStore.Models;
 
 namespace UI.WebStore.Infrastructure.Services
 {

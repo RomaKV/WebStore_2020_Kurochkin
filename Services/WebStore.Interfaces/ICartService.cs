@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using UI.WebStore.Models;
+﻿using Common.WebStore.ViewModels;
 
-namespace UI.WebStore.Infrastructure.Interfaces
+namespace Services.WebStore.Infrastructure.Interfaces
 {
     public interface ICartService
     {

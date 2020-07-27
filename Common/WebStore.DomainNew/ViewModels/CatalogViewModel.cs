@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace UI.WebStore.Models
+namespace Common.WebStore.ViewModels
 {
     public class CatalogViewModel
     {

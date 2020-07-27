@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace UI.WebStore.Models
+namespace Common.WebStore.ViewModels
 {
     public class CartItem
     {

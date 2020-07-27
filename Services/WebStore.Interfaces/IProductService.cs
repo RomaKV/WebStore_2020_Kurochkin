@@ -2,7 +2,7 @@
 using Common.WebStore.Domain.Entities;
 using System.Collections.Generic;
 
-namespace UI.WebStore.Infrastructure.Interfaces
+namespace Services.WebStore.Infrastructure.Interfaces
 {
     public interface IProductService
     {

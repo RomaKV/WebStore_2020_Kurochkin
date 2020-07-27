@@ -1,11 +1,10 @@
 ﻿using Common.WebStore.Domain;
 using Common.WebStore.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Services.WebStore.DAL;
-using UI.WebStore.Infrastructure.Interfaces;
+using Services.WebStore.Infrastructure.Interfaces;
 
 namespace UI.WebStore.Infrastructure.Services
 {

@@ -1,8 +1,8 @@
 ﻿using Common.WebStore.Domain;
 using Common.WebStore.Domain.Entities;
+using Services.WebStore.Infrastructure.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
-using UI.WebStore.Infrastructure.Interfaces;
 
 namespace UI.WebStore.Infrastructure.Services
 {

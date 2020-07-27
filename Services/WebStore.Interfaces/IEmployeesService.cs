@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using UI.WebStore.Models;
+﻿using Common.WebStore.ViewModels;
+using System.Collections.Generic;
 
-namespace UI.WebStore.Infrastructure.Interfaces
+namespace Services.WebStore.Infrastructure.Interfaces
 {
     public interface IEmployeesService
     {

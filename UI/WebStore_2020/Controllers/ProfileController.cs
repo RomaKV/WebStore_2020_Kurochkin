@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using Common.WebStore.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using UI.WebStore.Infrastructure.Interfaces;
-using UI.WebStore.Models;
+using Services.WebStore.Infrastructure.Interfaces;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

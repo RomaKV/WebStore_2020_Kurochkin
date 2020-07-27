@@ -5,8 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Services.WebStore.DAL;
-using UI.WebStore.Infrastructure.Interfaces;
-using UI.WebStore.Models;
+using Common.WebStore.ViewModels;
+using Services.WebStore.Infrastructure.Interfaces;
 
 namespace UI.WebStore.Infrastructure.Services
 {

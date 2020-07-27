@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
+using Common.WebStore.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using UI.WebStore.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

@@ -1,8 +1,8 @@
 ﻿using Common.WebStore.Domain.Entities.Base.Interfaces;
 using System.Collections.Generic;
 
-namespace UI.WebStore.Models
-{
+namespace Common.WebStore.ViewModels
+{ 
     public class CategoryViewModel : INamedEntity, IOrderedEntity
     {
         public CategoryViewModel()
