@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Services.WebStore.Interfaces;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UI.WebStore.Infrastructure;
 
@@ -20,16 +21,16 @@ namespace UI.WebStore.Controllers
         
         public async Task<IActionResult> IndexAsync()
         {
-            var values = await this.valuesService.GetAsync();
+           var values = await this.valuesService.GetAsync();
            
             return View(values);
         }
 
-        public IActionResult Index()
-        {
-            //throw new ApplicationException("Ошибочка вышла...");
-            return View();
-        }
+        //public IActionResult Index()
+        //{
+        //    //throw new ApplicationException("Ошибочка вышла...");
+        //    return View();
+        //}
 
         // GET: /<controller>/blog
         [SimpleActionFilter]
