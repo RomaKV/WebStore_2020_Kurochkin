@@ -12,6 +12,8 @@ using Services.WebStore.DAL;
 using UI.WebStore.Infrastructure;
 using UI.WebStore.Infrastructure.Services;
 using Services.WebStore.Infrastructure.Interfaces;
+using Services.WebStore.Clients;
+using Services.WebStore.Interfaces;
 
 namespace WebStore
 {
@@ -77,6 +79,9 @@ namespace WebStore
             services.AddSingleton<IEmployeesService, InMemoryEmployeeService>();
             services.AddScoped<IProductService, SqlProductService>();
             services.AddScoped<IOrdersService, SqlOrdersService>();
+            
+            services.AddTransient<IValuesService, ValuesClient>();
+           
             //services.AddScoped<IEmployeesService, InMemoryEmployeeService>();
             //services.AddTransient<IEmployeesService, InMemoryEmployeeService>();
 
