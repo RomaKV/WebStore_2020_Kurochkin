@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Services.WebStore.Interfaces
 {
-    public interface IValuesService
+   public interface IValuesService
    {
         IEnumerable<string> Get();
 
