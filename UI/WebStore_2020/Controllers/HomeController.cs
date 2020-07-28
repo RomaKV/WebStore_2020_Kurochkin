@@ -13,15 +13,17 @@ namespace UI.WebStore.Controllers
     {
         // GET: /<controller>/
         private readonly IValuesService valuesService;
-        
-        public  HomeController(IValuesService valuesService)
+        private readonly IStudentsService studentService;
+
+        public  HomeController(IValuesService valuesService, IStudentsService studentService)
         {
             this.valuesService = valuesService;
+            this.studentService = studentService;
         }
         
         public async Task<IActionResult> IndexAsync()
         {
-           var values = await this.valuesService.GetAsync();
+           var values = await this.studentService.GetAsync();
            
             return View(values);
         }
