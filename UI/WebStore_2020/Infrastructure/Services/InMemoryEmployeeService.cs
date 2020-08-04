@@ -62,5 +62,10 @@ namespace UI.WebStore.Infrastructure.Services
 
             _employees.Remove(employee);
         }
+
+        public EmployeeViewModel UpdateEmployee(int id, EmployeeViewModel entity)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
