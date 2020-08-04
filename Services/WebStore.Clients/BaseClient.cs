@@ -9,7 +9,7 @@ namespace Services.WebStore.Clients
     public abstract class BaseClient
     {
         public HttpClient Client { get; set; }
-        protected abstract string ServiceAddress { get; set; }
+        protected abstract string ServiceAddress { get;}
         public BaseClient(IConfiguration configuration)
         {
             Client = new HttpClient
@@ -37,12 +37,7 @@ namespace Services.WebStore.Clients
         {
             return GetAsync<T>(url).Result;
         }
-
-        protected T Get<T>(string url, int id) where T : class
-        {                             
-            return GetAsync<T>(url, id).Result;
-        }
-
+       
         protected async Task<T> GetAsync<T>(string url) where T : new()
         {
             var list = new  T();
@@ -54,19 +49,7 @@ namespace Services.WebStore.Clients
 
             return list;
         }
-
-        protected async Task<T> GetAsync<T>(string url, int id) where T : class
-        {
-            T list = null;
-            var response = await this.Client.GetAsync($"{url}/{id}");
-            if (response.IsSuccessStatusCode)
-            {
-                list = await response.Content.ReadAsAsync<T>();
-            }
-
-            return list;
-        }
-
+      
         protected HttpResponseMessage Post<T> (string url, T value)
         {
             return PostAsync<T>(url, value).Result;

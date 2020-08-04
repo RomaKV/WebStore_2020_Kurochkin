@@ -21,7 +21,7 @@ namespace Services.WebStore.ServicesHosting.Controllers
         }
 
         [HttpPost, ActionName("Post")]
-        public void AddNew(EmployeeViewModel model)
+        public void AddNew([FromBody] EmployeeViewModel model)
         {
             this.employeesService.AddNew(model);
         }
@@ -50,7 +50,7 @@ namespace Services.WebStore.ServicesHosting.Controllers
         }
 
         [HttpPut, ActionName("Put")]
-        public EmployeeViewModel UpdateEmployee(int id, EmployeeViewModel entity)
+        public EmployeeViewModel UpdateEmployee(int id, [FromBody] EmployeeViewModel entity)
         {
             return this.employeesService.UpdateEmployee(id, entity);
         }

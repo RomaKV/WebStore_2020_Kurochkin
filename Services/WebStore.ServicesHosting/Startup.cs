@@ -11,7 +11,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Services.WebStore.Clients;
 using Services.WebStore.DAL;
+using Services.WebStore.Infrastructure.Interfaces;
+using UI.WebStore.Infrastructure.Services;
 
 namespace Services.WebStore.ServicesHosting
 {
@@ -31,6 +34,8 @@ namespace Services.WebStore.ServicesHosting
 
             services.AddDbContext<WebStoreContext>(options => options
                 .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddSingleton<IEmployeesService, InMemoryEmployeeService>();
 
 
 
