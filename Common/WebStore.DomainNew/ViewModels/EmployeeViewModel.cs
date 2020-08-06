@@ -4,6 +4,8 @@ namespace Common.WebStore.ViewModels
 {
     public class EmployeeViewModel
     {
+        public EmployeeViewModel() { }
+        
         public int Id { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Имя является обязательным")]

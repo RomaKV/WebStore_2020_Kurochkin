@@ -18,7 +18,7 @@ namespace Services.WebStore.Clients
         }
               
         
-        protected override string ServiceAddress { get; set; } 
+        protected override string ServiceAddress { get;} 
         
         public HttpStatusCode Delete(int id)
         {

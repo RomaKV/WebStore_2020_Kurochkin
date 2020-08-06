@@ -34,5 +34,7 @@ namespace Services.WebStore.Infrastructure.Interfaces
         /// </summary>
         /// <param name="id"></param>
         void Delete(int id);
+
+        EmployeeViewModel UpdateEmployee(int id, EmployeeViewModel entity);
     }
 }
