@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Services.WebStore.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 
 namespace Services.WebStore.Clients
@@ -36,7 +37,9 @@ namespace Services.WebStore.Clients
 
         public IEnumerable<ProductDto> GetProducts(ProductFilter filter)
         {
-            return Get<List<ProductDto>>($"{this.ServiceAddress}/products");
+            return Post(this.ServiceAddress, filter).
+                Content.ReadAsAsync<IEnumerable<ProductDto>>().Result;
+           
         }
 
 

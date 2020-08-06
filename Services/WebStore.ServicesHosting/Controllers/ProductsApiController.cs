@@ -32,8 +32,10 @@ namespace Services.WebStore.ServicesHosting.Controllers
         public IEnumerable<Category> GetCategories()
         {
             return this.productService.GetCategories();
+                      
         }
 
+        
         [HttpGet("{id}"), ActionName("Get")]       
         public ProductDto GetProductById(int id)
         {
@@ -42,7 +44,7 @@ namespace Services.WebStore.ServicesHosting.Controllers
         }
 
         [HttpPost, ActionName("Post")]
-        public IEnumerable<ProductDto> GetProducts(ProductFilter filter)
+        public IEnumerable<ProductDto> GetProducts([FromBody]ProductFilter filter)
         {
             return this.productService.GetProducts(filter);
         }

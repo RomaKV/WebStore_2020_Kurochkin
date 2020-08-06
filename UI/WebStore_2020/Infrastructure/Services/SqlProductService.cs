@@ -45,10 +45,24 @@ namespace UI.WebStore.Infrastructure.Services
 
         public ProductDto GetProductById(int id)
         {
-            return _context.Products
-                .Include(p => p.Category) // жадная загрузка (Eager Load) для категорий
-                .Include(p => p.Brand) // жадная загрузка (Eager Load) для брендов
-                .FirstOrDefault(p => p.Id == id).ToDto();
+          var product = _context.Products
+                // .Include(p => p.Category) // жадная загрузка (Eager Load) для категорий
+                // .Include(p => p.Brand) // жадная загрузка (Eager Load) для брендов
+                 .FirstOrDefault(p => p.Id == id);
+
+            if (product != null)
+            {
+                return product.ToDto();
+            }
+            else
+            {
+                return null;
+            }
+
+            //return _context.Products
+            //    .Include(p => p.Category) // жадная загрузка (Eager Load) для категорий
+            //    .Include(p => p.Brand) // жадная загрузка (Eager Load) для брендов
+            //    .FirstOrDefault(p => p.Id == id)?.ToDto();
 
         }
     }

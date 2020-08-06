@@ -1,10 +1,13 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Common.WebStore.DomainNew.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +17,7 @@ using Microsoft.Extensions.Logging;
 using Services.WebStore.Clients;
 using Services.WebStore.DAL;
 using Services.WebStore.Infrastructure.Interfaces;
+using UI.WebStore.Infrastructure;
 using UI.WebStore.Infrastructure.Services;
 
 namespace Services.WebStore.ServicesHosting
@@ -32,15 +36,14 @@ namespace Services.WebStore.ServicesHosting
         {
             services.AddControllers();
 
+        
             services.AddDbContext<WebStoreContext>(options => options
                 .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+                    
             services.AddSingleton<IEmployeesService, InMemoryEmployeeService>();
-            services.AddScoped<IProductService, InMemoryProductService>();
-
-
-
-
+            services.AddScoped<IProductService, SqlProductService>();
+           
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +59,8 @@ namespace Services.WebStore.ServicesHosting
             app.UseRouting();
 
             app.UseAuthorization();
+
+       
 
             app.UseEndpoints(endpoints =>
             {

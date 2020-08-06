@@ -26,7 +26,7 @@ namespace UI.WebStore.Controllers
             {
                 BrandId = brandId,
                 CategoryId = categoryId,
-                Products = products.Select(p => new ProductViewModel()
+                Products = products?.Select(p => new ProductViewModel()
                 {
                     Id = p.Id,
                     ImageUrl = p.ImageUrl,
