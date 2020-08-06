@@ -42,8 +42,9 @@ namespace Services.WebStore.ServicesHosting
                     
             services.AddSingleton<IEmployeesService, InMemoryEmployeeService>();
             services.AddScoped<IProductService, SqlProductService>();
-           
-            
+            services.AddScoped<IOrdersService, SqlOrdersService>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
