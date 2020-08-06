@@ -29,8 +29,8 @@ namespace UI.WebStore.ViewComponents
             {
                 Id = b.Id,
                 Name = b.Name,
-                Order = b.Order,
-                ProductsCount = 0
+                //Order = b.Order,
+                //ProductsCount = 0
             }).OrderBy(b => b.Order).ToList();
         }
 

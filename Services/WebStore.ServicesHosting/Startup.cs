@@ -36,6 +36,7 @@ namespace Services.WebStore.ServicesHosting
                 .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddSingleton<IEmployeesService, InMemoryEmployeeService>();
+            services.AddScoped<IProductService, SqlProductService>();
 
 
 

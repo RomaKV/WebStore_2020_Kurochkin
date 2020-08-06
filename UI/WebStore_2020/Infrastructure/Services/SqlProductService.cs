@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Services.WebStore.DAL;
 using Services.WebStore.Infrastructure.Interfaces;
+using Common.WebStore.DomainNew.Dto;
+using Common.WebStore.DomainNew.Helpers;
 
 namespace UI.WebStore.Infrastructure.Services
 {
@@ -21,12 +23,12 @@ namespace UI.WebStore.Infrastructure.Services
             return _context.Categories.ToList();
         }
 
-        public IEnumerable<Brand> GetBrands()
+        public IEnumerable<BrandDto> GetBrands()
         {
-            return _context.Brands.ToList();
+            return _context.Brands.Select(b => b.ToDto()).ToList();
         }
 
-        public IEnumerable<Product> GetProducts(ProductFilter filter)
+        public IEnumerable<ProductDto> GetProducts(ProductFilter filter)
         {
             var query = _context.Products
                 .Include(p => p.Category) // жадная загрузка (Eager Load) для категорий
@@ -38,15 +40,15 @@ namespace UI.WebStore.Infrastructure.Services
             if (filter.CategoryId.HasValue)
                 query = query.Where(c => c.CategoryId.Equals(filter.CategoryId.Value));
 
-            return query.ToList();
+            return query.Select(p => p.ToDto()).ToList();
         }
 
-        public Product GetProductById(int id)
+        public ProductDto GetProductById(int id)
         {
             return _context.Products
                 .Include(p => p.Category) // жадная загрузка (Eager Load) для категорий
                 .Include(p => p.Brand) // жадная загрузка (Eager Load) для брендов
-                .FirstOrDefault(p => p.Id == id);
+                .FirstOrDefault(p => p.Id == id).ToDto();
 
         }
     }
