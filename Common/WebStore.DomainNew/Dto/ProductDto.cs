@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Common.WebStore.DomainNew.Dto
 {
-    class ProductDto : INamedEntity, IOrderedEntity
-    {
+   public class ProductDto : INamedEntity, IOrderedEntity
+   {
         public int Order { get; set;}
         public int Id { get; set; }
         public string Name { get; set; }
