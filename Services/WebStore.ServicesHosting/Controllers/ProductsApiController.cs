@@ -28,6 +28,7 @@ namespace Services.WebStore.ServicesHosting.Controllers
             return this.productService.GetBrands();
         }
 
+        [HttpGet("categories")]
         public IEnumerable<Category> GetCategories()
         {
             return this.productService.GetCategories();
@@ -36,6 +37,7 @@ namespace Services.WebStore.ServicesHosting.Controllers
         [HttpGet("{id}"), ActionName("Get")]       
         public ProductDto GetProductById(int id)
         {
+            
             return this.productService.GetProductById(id);
         }
 

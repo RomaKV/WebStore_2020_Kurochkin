@@ -11,20 +11,25 @@ namespace Common.WebStore.DomainNew.Helpers
     {
         public static ProductDto ToDto(this Product p)
         {
-            return new ProductDto
+            var product = new ProductDto
             {
                 Id = p.Id,
                 Name = p.Name,
                 Order = p.Order,
                 Price = p.Price,
-                ImageUrl = p.ImageUrl,
-                Brand = p.BrandId.HasValue ? new BrandDto
-                {
-                    Id = p.Brand.Id,
-                    Name = p.Brand.Name
-                } : null
-
+                ImageUrl = p.ImageUrl
             };
+            
+            if (p.Brand != null)
+            {
+                product.Brand = new BrandDto
+                {
+                    Id = (int)p.BrandId,
+                    Name = p.Brand.Name
+                };
+            }
+
+            return product;
         }
     }
 }
