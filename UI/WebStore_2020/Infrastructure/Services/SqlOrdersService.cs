@@ -7,6 +7,8 @@ using System.Linq;
 using Services.WebStore.DAL;
 using Common.WebStore.ViewModels;
 using Services.WebStore.Infrastructure.Interfaces;
+using Common.WebStore.DomainNew.Dto;
+using Common.WebStore.DomainNew.Helpers;
 
 namespace UI.WebStore.Infrastructure.Services
 {
@@ -21,41 +23,41 @@ namespace UI.WebStore.Infrastructure.Services
             _userManager = userManager;
         }
 
-        public IEnumerable<Order> GetUserOrders(string userName)
+        public IEnumerable<OrderDto> GetUserOrders(string userName)
         {
             return _context.Orders
                 .Include("User")
                 .Include("OrderItems")
                 .Where(x => x.User.UserName == userName)
-                .ToList();
+                .Select(o => o.ToDto()).ToList();
         }
 
-        public Order GetOrderById(int id)
+        public OrderDto GetOrderById(int id)
         {
             return _context.Orders
                 .Include("User")
                 .Include("OrderItems")
-                .FirstOrDefault(x => x.Id == id);
+                .FirstOrDefault(x => x.Id == id).ToDto();
         }
 
-        public Order CreateOrder(OrderViewModel orderModel, CartViewModel transformCart, string userName)
+        public OrderDto CreateOrder(CreateOrderDto order)
         {
-            var user = _userManager.FindByNameAsync(userName).Result;
+            var user = _userManager.FindByNameAsync(order.UserName).Result;
 
             using (var transaction = _context.Database.BeginTransaction())
             {
-                var order  = new Order()
+                var orderModel  = new Order()
                 {
-                    Address = orderModel.Address,
-                    Name = orderModel.Name,
+                    Address = order.Order.Address,
+                    Name = order.Order.Name,
                     Date = DateTime.Now,
-                    Phone = orderModel.Phone,
+                    Phone = order.Order.Phone,
                     User = user
                 };
 
-                _context.Orders.Add(order);
+                _context.Orders.Add(orderModel);
 
-                foreach (var item in transformCart.Items)
+                foreach (var item in order.Cart.Items)
                 {
                     var productVm = item.Key;
                     var product = _context.Products.FirstOrDefault(p => p.Id.Equals(productVm.Id));
@@ -68,7 +70,7 @@ namespace UI.WebStore.Infrastructure.Services
                         Price = product.Price,
                         Quantity = item.Value,
 
-                        Order = order,
+                        Order = orderModel,
                         Product = product
                     };
 
@@ -78,7 +80,7 @@ namespace UI.WebStore.Infrastructure.Services
                 _context.SaveChanges();
                 transaction.Commit();
 
-                return order;
+                return orderModel.ToDto();
             }
         }
     }

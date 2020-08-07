@@ -1,4 +1,5 @@
-﻿using Common.WebStore.ViewModels;
+﻿using Common.WebStore.DomainNew.Dto;
+using Common.WebStore.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Services.WebStore.Infrastructure.Interfaces;
 
@@ -56,7 +57,15 @@ namespace UI.WebStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                var orderResult = _ordersService.CreateOrder(model, _cartService.TransformCart(), User.Identity.Name);
+                var orderResult = _ordersService.CreateOrder(
+                  new CreateOrderDto
+                  {
+                     Order = model,
+                     Cart = _cartService.TransformCart(),
+                     UserName = User.Identity.Name
+                  }
+                );
+                 
                 _cartService.RemoveAll();
                 return RedirectToAction("OrderConfirmed", new { id = orderResult.Id });
             }

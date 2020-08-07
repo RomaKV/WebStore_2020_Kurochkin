@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Common.WebStore.DomainNew.Dto;
 using Common.WebStore.DomainNew.Entities;
 using Common.WebStore.ViewModels;
 using Microsoft.AspNetCore.Http;
@@ -10,9 +11,8 @@ using Services.WebStore.Infrastructure.Interfaces;
 
 namespace Services.WebStore.ServicesHosting.Controllers
 {
-    
-    [Route("api/orders")]
     [Produces("application/json")]
+    [Route("api/orders")]  
     public class OrdersApiController : ControllerBase, IOrdersService
     {
         private readonly IOrdersService orderService;
@@ -21,23 +21,23 @@ namespace Services.WebStore.ServicesHosting.Controllers
         {
             this.orderService = orderService;
         }
-              
+
         [HttpPost("create")]
-        public Order CreateOrder(OrderViewModel orderModel, CartViewModel transformCart, string userName)
+        public OrderDto CreateOrder([FromBody]CreateOrderDto order)
         {
-           return this.CreateOrder(orderModel, transformCart, userName);
+           return this.orderService.CreateOrder(order);
         }
 
         [HttpGet("{id}"), ActionName("Get")]
-        public Order GetOrderById(int id)
+        public OrderDto GetOrderById(int id)
         {
-           return this.GetOrderById(id);
+           return this.orderService.GetOrderById(id);
         }
 
         [HttpPost("user/{userName}")]
-        public IEnumerable<Order> GetUserOrders(string userName)
+        public IEnumerable<OrderDto> GetUserOrders(string userName)
         {
-            return this.GetUserOrders(userName);
+            return this.orderService.GetUserOrders(userName);
         }
     }
 }

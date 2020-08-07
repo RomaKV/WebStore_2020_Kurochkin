@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -12,9 +13,13 @@ namespace Services.WebStore.Clients
         protected abstract string ServiceAddress { get;}
         public BaseClient(IConfiguration configuration)
         {
+
+           
+            
             Client = new HttpClient
             {
                 BaseAddress = new Uri(configuration["clientAddress"])
+                
             };
 
             Client.DefaultRequestHeaders.Accept.Clear();
@@ -52,7 +57,7 @@ namespace Services.WebStore.Clients
       
         protected HttpResponseMessage Post<T> (string url, T value)
         {
-            return PostAsync<T>(url, value).Result;
+            return PostAsync<T>(url, value). Result;
         }
 
         public async Task<HttpResponseMessage> PostAsync<T>(string url, T value)
