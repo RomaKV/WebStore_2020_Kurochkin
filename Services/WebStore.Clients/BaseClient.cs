@@ -57,7 +57,7 @@ namespace Services.WebStore.Clients
       
         protected HttpResponseMessage Post<T> (string url, T value)
         {
-            return PostAsync<T>(url, value). Result;
+            return PostAsync<T>(url, value).Result;
         }
 
         public async Task<HttpResponseMessage> PostAsync<T>(string url, T value)

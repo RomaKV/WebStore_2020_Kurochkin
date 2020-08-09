@@ -18,7 +18,7 @@ namespace Services.WebStore.Clients
         public OrderDto CreateOrder(CreateOrderDto order)
         {
 
-            var orderModel = Post($"{this.ServiceAddress}/create", order).
+            var orderModel = Post($"{this.ServiceAddress}", order).
                Content.ReadAsAsync<OrderDto>().Result;
 
 

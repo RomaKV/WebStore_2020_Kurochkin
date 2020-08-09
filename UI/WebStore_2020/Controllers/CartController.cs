@@ -52,18 +52,21 @@ namespace UI.WebStore.Controllers
             return Redirect(returnUrl);
         }
 
-        [HttpPost, ValidateAntiForgeryToken]
+        [HttpPost/*, ValidateAntiForgeryToken*/]
         public IActionResult CheckOut(OrderViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var orderResult = _ordersService.CreateOrder(
-                  new CreateOrderDto
-                  {
-                     Order = model,
-                     Cart = _cartService.TransformCart(),
-                     UserName = User.Identity.Name
-                  }
+                var createOrderDto = new CreateOrderDto
+                {
+                    Order = model,
+                    Cart = _cartService.TransformCart(),
+                    UserName = User.Identity.Name
+                };
+
+
+                var orderResult = _ordersService.CreateOrder(createOrderDto
+                 
                 );
                  
                 _cartService.RemoveAll();

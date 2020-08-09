@@ -22,7 +22,8 @@ namespace Services.WebStore.ServicesHosting.Controllers
             this.orderService = orderService;
         }
 
-        [HttpPost("create")]
+        [HttpPost]
+        [ActionName("Post")]
         public OrderDto CreateOrder([FromBody]CreateOrderDto order)
         {
            return this.orderService.CreateOrder(order);

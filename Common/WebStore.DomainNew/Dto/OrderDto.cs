@@ -12,7 +12,7 @@ namespace Common.WebStore.DomainNew.Dto
         public string Phone { get; set; }
         public string Address { get; set; }
         public DateTime Date { get; set; }
-        public IEnumerable<OrderItemDto> OrderItems { get; set; }
+        //public IEnumerable<OrderItemDto> OrderItems { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
     }

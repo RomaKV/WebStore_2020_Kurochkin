@@ -36,18 +36,20 @@ namespace Services.WebStore.ServicesHosting
         {
             services.AddControllers();
 
-            services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<WebStoreContext>()
-                .AddDefaultTokenProviders();
+           
 
             services.AddDbContext<WebStoreContext>(options => options
                 .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
                     
             services.AddSingleton<IEmployeesService, InMemoryEmployeeService>();
             services.AddScoped<IProductService, SqlProductService>();
-            services.AddTransient<IOrdersService, SqlOrdersService>();
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped<ICartService, CookieCartService>();
+            services.AddScoped<IOrdersService, SqlOrdersService>();
+           // services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            //services.AddScoped<ICartService, CookieCartService>();
+
+            services.AddIdentity<User, IdentityRole>()
+               .AddEntityFrameworkStores<WebStoreContext>()
+               .AddDefaultTokenProviders();
 
         }
 
