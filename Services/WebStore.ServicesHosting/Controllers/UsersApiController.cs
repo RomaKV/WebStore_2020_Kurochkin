@@ -212,9 +212,9 @@ namespace Services.WebStore.ServicesHosting.Controllers
         }
 
         [HttpPost("addLogin")]
-        public async Task AddLoginAsync([FromBody] User user, UserLoginInfo login)
+        public async Task AddLoginAsync([FromBody] AddLoginDto userDto)
         {
-            await this.userStore.AddLoginAsync(user, login);
+            await this.userStore.AddLoginAsync(userDto.User, userDto.UserLoginInfo);
              return;
         }
 
