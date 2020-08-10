@@ -22,15 +22,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebStore.Clients", "Services\WebStore.Clients\WebStore.Clients.csproj", "{6276C715-2382-4D91-B2AB-C07817ADB33D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{FCDA0B52-30F4-4DFE-B02F-CC9FEA981C5C}"
-	ProjectSection(SolutionItems) = preProject
-		Services\WebStore.Services\CookieCartService.cs = Services\WebStore.Services\CookieCartService.cs
-		Services\Services\InMemoryEmployeeService.cs = Services\Services\InMemoryEmployeeService.cs
-		Services\Services\InMemoryProductService.cs = Services\Services\InMemoryProductService.cs
-		Services\Services\SqlOrdersService.cs = Services\Services\SqlOrdersService.cs
-		Services\Services\SqlProductService.cs = Services\Services\SqlProductService.cs
-	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStore.Services", "Services\WebStore.Services\WebStore.Services.csproj", "{CE0D3AB7-2AF3-4061-B755-4C231C499A6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebStore.Services", "Services\WebStore.Services\WebStore.Services.csproj", "{CE0D3AB7-2AF3-4061-B755-4C231C499A6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

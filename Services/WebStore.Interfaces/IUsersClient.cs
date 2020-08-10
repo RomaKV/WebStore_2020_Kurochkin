@@ -6,13 +6,17 @@ using System.Text;
 
 namespace Services.WebStore.Interfaces
 {
-    public interface IUsersClient : IUserRoleStore<User>,
+    public interface IUsersClient : 
+         IUserStore<User>,
+         IUserLoginStore<User>,
+         IUserRoleStore<User>,
          IUserClaimStore<User>,
          IUserPasswordStore<User>,
          IUserTwoFactorStore<User>,
          IUserEmailStore<User>,
-         IUserPhoneNumberStore<User>,
-         IUserLoginStore<User>,
+         IUserPhoneNumberStore<User>,        
          IUserLockoutStore<User>
+         
+         
     { }
 }

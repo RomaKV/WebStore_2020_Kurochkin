@@ -37,10 +37,15 @@ namespace Services.WebStore.ServicesHosting
            // services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //services.AddScoped<ICartService, CookieCartService>();
 
+            // Identity
+
             services.AddIdentity<User, IdentityRole>()
                .AddEntityFrameworkStores<WebStoreContext>()
                .AddDefaultTokenProviders();
 
+            services.AddTransient<IUserStore<User>, CustomUserStore>();
+        
+        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
