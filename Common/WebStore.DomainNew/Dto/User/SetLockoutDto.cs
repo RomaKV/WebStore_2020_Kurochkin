@@ -6,7 +6,7 @@ namespace Common.WebStore.DomainNew.Dto.User
 {
     public class SetLockoutDto
     {
-        Entities.User User { get; set; }
-        public DateTimeOffset? LockoutEnd { get; set; }
+       public Entities.User User { get; set; }
+       public DateTimeOffset? LockoutEnd { get; set; }
     }
 }
