@@ -1,24 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Common.WebStore.DomainNew.Entities;
+﻿using Common.WebStore.DomainNew.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Services.WebStore.Clients;
 using Services.WebStore.DAL;
 using Services.WebStore.Infrastructure.Interfaces;
-using UI.WebStore.Infrastructure;
-using UI.WebStore.Infrastructure.Services;
+using WebStore.Services;
 
 namespace Services.WebStore.ServicesHosting
 {

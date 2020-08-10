@@ -22,11 +22,11 @@ namespace Services.WebStore.ServicesHosting.Controllers
             this.orderService = orderService;
         }
 
-        [HttpPost]
+        [HttpPost("{userName}")]
         [ActionName("Post")]
-        public OrderDto CreateOrder([FromBody]CreateOrderDto order)
+        public OrderDto CreateOrder([FromBody]CreateOrderDto order, string userName)
         {
-           return this.orderService.CreateOrder(order);
+           return this.orderService.CreateOrder(order, userName);
         }
 
         [HttpGet("{id}"), ActionName("Get")]

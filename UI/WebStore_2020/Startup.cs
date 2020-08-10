@@ -10,10 +10,10 @@ using Microsoft.Extensions.Hosting;
 using System;
 using Services.WebStore.DAL;
 using UI.WebStore.Infrastructure;
-using UI.WebStore.Infrastructure.Services;
 using Services.WebStore.Infrastructure.Interfaces;
 using Services.WebStore.Clients;
 using Services.WebStore.Interfaces;
+using WebStore.Services;
 
 namespace WebStore
 {

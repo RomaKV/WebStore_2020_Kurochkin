@@ -1,15 +1,15 @@
 ﻿using Common.WebStore.Domain;
 using Common.WebStore.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using Services.WebStore.DAL;
-using Services.WebStore.Infrastructure.Interfaces;
 using Common.WebStore.DomainNew.Dto;
 using Common.WebStore.DomainNew.Helpers;
+using Microsoft.EntityFrameworkCore;
+using Services.WebStore.DAL;
+using Services.WebStore.Infrastructure.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace UI.WebStore.Infrastructure.Services
-{
+namespace WebStore.Services
+{ 
     public class SqlProductService : IProductService
     {
         private readonly WebStoreContext _context;

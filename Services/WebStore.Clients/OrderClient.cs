@@ -15,10 +15,10 @@ namespace Services.WebStore.Clients
 
         protected override string ServiceAddress { get; }
 
-        public OrderDto CreateOrder(CreateOrderDto order)
+        public OrderDto CreateOrder(CreateOrderDto order, string userName)
         {
 
-            var orderModel = Post($"{this.ServiceAddress}", order).
+            var orderModel = Post($"{this.ServiceAddress}/{userName}", order).
                Content.ReadAsAsync<OrderDto>().Result;
 
 

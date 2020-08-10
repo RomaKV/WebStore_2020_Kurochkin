@@ -2,6 +2,8 @@
 using Common.WebStore.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Services.WebStore.Infrastructure.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace UI.WebStore.Controllers
 {
@@ -52,7 +54,7 @@ namespace UI.WebStore.Controllers
             return Redirect(returnUrl);
         }
 
-        [HttpPost/*, ValidateAntiForgeryToken*/]
+        [HttpPost, ValidateAntiForgeryToken]
         public IActionResult CheckOut(OrderViewModel model)
         {
             if (ModelState.IsValid)
@@ -60,14 +62,22 @@ namespace UI.WebStore.Controllers
                 var createOrderDto = new CreateOrderDto
                 {
                     Order = model,
-                    Cart = _cartService.TransformCart(),
-                    UserName = User.Identity.Name
+                    OrderItems = new List<OrderItemDto>()                 
                 };
 
+                foreach(var orderItem in _cartService.TransformCart().Items)
+                {
+                    createOrderDto.OrderItems.Add(new OrderItemDto
+                    {
+                        Id = orderItem.Key.Id,
+                        Price = orderItem.Key.Price,
+                        Quantity = orderItem.Value
+                    });
+                }
 
-                var orderResult = _ordersService.CreateOrder(createOrderDto
-                 
-                );
+
+
+                var orderResult = _ordersService.CreateOrder(createOrderDto, User.Identity.Name);
                  
                 _cartService.RemoveAll();
                 return RedirectToAction("OrderConfirmed", new { id = orderResult.Id });

@@ -7,12 +7,10 @@ using System.Text;
 namespace Common.WebStore.DomainNew.Dto
 {
     public class CreateOrderDto
-    {
-      public string UserName { get; set; }
-
+    {     
       public  OrderViewModel Order { get; set; } 
      
-      public  CartViewModel Cart { get; set; }
+      public List<OrderItemDto> OrderItems { get; set; }
         
     }
 }
