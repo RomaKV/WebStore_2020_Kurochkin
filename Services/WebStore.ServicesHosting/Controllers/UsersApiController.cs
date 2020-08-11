@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading;
-using System.Threading.Tasks;
-using Common.WebStore.DomainNew.Dto.User;
+﻿using Common.WebStore.DomainNew.Dto.User;
 using Common.WebStore.DomainNew.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Services.WebStore.DAL;
-using Services.WebStore.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Services.WebStore.ServicesHosting.Controllers
 {
@@ -35,11 +31,11 @@ namespace Services.WebStore.ServicesHosting.Controllers
             return await this.userStore.GetUserIdAsync(user);
         }
 
-        [HttpPost("userName")]
-        public async Task<string> GetUserAsync([FromBody] User user)
-        {
-            return await this.userStore.GetUserIdAsync(user);
-        }
+        //[HttpPost("userName")]
+        //public async Task<string> GetUserAsync([FromBody] User user)
+        //{
+        //    return await this.userStore.GetUserIdAsync(user);
+        //}
 
         [HttpPost("role/{roleName}")]
         public async Task AddToRoleAsync([FromBody]  User user, string roleName)
@@ -314,21 +310,24 @@ namespace Services.WebStore.ServicesHosting.Controllers
         }
 
         [HttpPost("user")]
-        public async Task<IdentityResult> CreateAsync([FromBody] User user)
+        public async Task<bool> CreateAsync([FromBody] User user)
         {
-            return await this.userStore.CreateAsync(user);
+            var result = await this.userStore.CreateAsync(user);
+            return result.Succeeded;
         }
 
         [HttpPut("user")]
-        public async Task<IdentityResult> UpdateAsync(User user)
+        public async Task<bool> UpdateAsync(User user)
         {
-            return await this.userStore.UpdateAsync(user);
+            var result = await this.userStore.UpdateAsync(user);
+            return result.Succeeded;
         }
 
         [HttpPost("user/delete")]
-        public async Task<IdentityResult> DeleteAsync([FromBody] User user)
+        public async Task<bool> DeleteAsync([FromBody] User user)
         {
-            return await this.userStore.DeleteAsync(user);
+            var result = await this.userStore.DeleteAsync(user);
+            return result.Succeeded;
         }
 
 

@@ -21,7 +21,8 @@ namespace Services.WebStore.Clients.Users
         public async Task<IdentityResult> CreateAsync(IdentityRole role, CancellationToken cancellationToken)
         {
             var request = await PostAsync($"{this.ServiceAddress}", role);
-            return await request.Content.ReadAsAsync<IdentityResult>();
+            var result = await request.Content.ReadAsAsync<bool>();
+            return result ? IdentityResult.Success : IdentityResult.Failed();
         }
 
         public async Task<IdentityResult> DeleteAsync(IdentityRole role, CancellationToken cancellationToken)

@@ -14,6 +14,8 @@ using Services.WebStore.Infrastructure.Interfaces;
 using Services.WebStore.Clients;
 using Services.WebStore.Interfaces;
 using WebStore.Services;
+using Services.WebStore.Clients.Users;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace WebStore
 {
@@ -37,12 +39,25 @@ namespace WebStore
                 //options.Filters.Add(new SimpleActionFilter());
             });
 
-            services.AddDbContext<WebStoreContext>(options => options
-                .UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<WebStoreContext>(options => options
+            //    .UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+
 
             services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<WebStoreContext>()
-                .AddDefaultTokenProviders();
+               .AddEntityFrameworkStores<WebStoreContext>()
+               .AddDefaultTokenProviders();
+
+            services.AddTransient<IUserStore<User>, CustomUserStore>();
+            services.AddTransient<IUserRoleStore<User>, CustomUserStore>();
+            services.AddTransient<IUserClaimStore<User>, CustomUserStore>();
+            services.AddTransient<IUserPasswordStore<User>, CustomUserStore>();
+            services.AddTransient<IUserTwoFactorStore<User>, CustomUserStore>();
+            services.AddTransient<IUserEmailStore<User>, CustomUserStore>();
+            services.AddTransient<IUserPhoneNumberStore<User>, CustomUserStore>();
+            services.AddTransient<IUserLoginStore<User>, CustomUserStore>();
+            services.AddTransient<IUserLockoutStore<User>, CustomUserStore>();
+            services.AddTransient<IRoleStore<IdentityRole>, RolesClient>();
+
 
             services.Configure<IdentityOptions>(options => // необязательно
             {
@@ -83,12 +98,15 @@ namespace WebStore
             
             services.AddTransient<IValuesService, ValuesClient>();
             services.AddTransient<IStudentsService, StudentsClient>();
+            services.AddTransient<IUsersClient, UsersClient>();
 
             //services.AddScoped<IEmployeesService, InMemoryEmployeeService>();
             //services.AddTransient<IEmployeesService, InMemoryEmployeeService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<ICartService, CookieCartService>();
+
+            
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

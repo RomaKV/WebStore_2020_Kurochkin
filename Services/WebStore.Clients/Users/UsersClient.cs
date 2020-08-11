@@ -46,7 +46,7 @@ namespace Services.WebStore.Clients.Users
         public async Task<IdentityResult> CreateAsync(User user, CancellationToken cancellationToken)
         {
             var request = await PostAsync($"{this.ServiceAddress}/user", user);
-            var result = await request.Content.ReadAsAsync<bool>();
+            var result = await request.Content.ReadAsAsync<bool>();          
             return result ? IdentityResult.Success : IdentityResult.Failed();
         }
 
@@ -265,18 +265,21 @@ namespace Services.WebStore.Clients.Users
 
         public async Task SetNormalizedEmailAsync(User user, string normalizedEmail, CancellationToken cancellationToken)
         {
+            user.NormalizedEmail = normalizedEmail;
             await PostAsync($"{this.ServiceAddress}/setEmail/{normalizedEmail}", user);
             return;
         }
 
         public async Task SetNormalizedUserNameAsync(User user, string normalizedName, CancellationToken cancellationToken)
         {
+            user.NormalizedUserName = normalizedName;
             await PostAsync($"{this.ServiceAddress}/setNormalizedUserName/{normalizedName}", user);
             return;
         }
 
         public async Task SetPasswordHashAsync(User user, string passwordHash, CancellationToken cancellationToken)
         {
+            user.PasswordHash = passwordHash;
             var request = await PostAsync($"{this.ServiceAddress}/setPasswordHash", user);
             return;
         }
@@ -307,7 +310,7 @@ namespace Services.WebStore.Clients.Users
 
         public async Task<IdentityResult> UpdateAsync(User user, CancellationToken cancellationToken)
         {
-            var request = await PostAsync($"{this.ServiceAddress}/user", user);
+            var request = await PutAsync($"{this.ServiceAddress}/user", user);
             var result = await request.Content.ReadAsAsync<bool>();
             return result ? IdentityResult.Success : IdentityResult.Failed();
         }
