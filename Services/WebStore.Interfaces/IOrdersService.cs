@@ -9,6 +9,6 @@ namespace Services.WebStore.Infrastructure.Interfaces
     {
         IEnumerable<OrderDto> GetUserOrders(string userName);
         OrderDto GetOrderById(int id);
-        OrderDto CreateOrder(CreateOrderDto order);
+        OrderDto CreateOrder(CreateOrderDto order, string userName);
     }
 }

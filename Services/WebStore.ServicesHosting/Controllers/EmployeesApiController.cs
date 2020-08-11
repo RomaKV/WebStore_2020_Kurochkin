@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Common.WebStore.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.WebStore.Infrastructure.Interfaces;
@@ -12,6 +13,7 @@ namespace Services.WebStore.ServicesHosting.Controllers
     [Produces("application/json")]
     [Route("api/employees")]
     //[ApiController]
+    //[Authorize]
     public class EmployeesController : ControllerBase, IEmployeesService
     {
         private readonly IEmployeesService employeesService;

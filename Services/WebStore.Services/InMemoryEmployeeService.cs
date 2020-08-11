@@ -3,7 +3,7 @@ using Services.WebStore.Infrastructure.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace UI.WebStore.Infrastructure.Services
+namespace WebStore.Services
 {
     public class InMemoryEmployeeService : IEmployeesService
     {

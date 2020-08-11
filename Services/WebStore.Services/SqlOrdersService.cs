@@ -1,16 +1,15 @@
-﻿using Common.WebStore.DomainNew.Entities;
+﻿using Common.WebStore.DomainNew.Dto;
+using Common.WebStore.DomainNew.Entities;
+using Common.WebStore.DomainNew.Helpers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Services.WebStore.DAL;
+using Services.WebStore.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Services.WebStore.DAL;
-using Common.WebStore.ViewModels;
-using Services.WebStore.Infrastructure.Interfaces;
-using Common.WebStore.DomainNew.Dto;
-using Common.WebStore.DomainNew.Helpers;
 
-namespace UI.WebStore.Infrastructure.Services
+namespace WebStore.Services
 {
     public class SqlOrdersService : IOrdersService
     {
@@ -40,9 +39,9 @@ namespace UI.WebStore.Infrastructure.Services
                 .FirstOrDefault(x => x.Id == id).ToDto();
         }
 
-        public OrderDto CreateOrder(CreateOrderDto order)
+        public OrderDto CreateOrder(CreateOrderDto order, string userName)
         {
-            var user = _userManager.FindByNameAsync(order.UserName).Result;
+            var user = _userManager.FindByNameAsync(userName).Result;
 
             using (var transaction = _context.Database.BeginTransaction())
             {
@@ -57,10 +56,10 @@ namespace UI.WebStore.Infrastructure.Services
 
                 _context.Orders.Add(orderModel);
 
-                foreach (var item in order.Cart.Items)
+                foreach (var item in order.OrderItems)
                 {
-                    var productVm = item.Key;
-                    var product = _context.Products.FirstOrDefault(p => p.Id.Equals(productVm.Id));
+                   
+                    var product = _context.Products.FirstOrDefault(p => p.Id.Equals(item.Id));
 
                     if (product == null)
                         throw new InvalidOperationException("Продукт не найден в базе");
@@ -68,7 +67,7 @@ namespace UI.WebStore.Infrastructure.Services
                     var orderItem = new OrderItem()
                     {
                         Price = product.Price,
-                        Quantity = item.Value,
+                        Quantity = item.Quantity,
 
                         Order = orderModel,
                         Product = product

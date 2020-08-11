@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -13,18 +12,17 @@ namespace Services.WebStore.Clients
         protected abstract string ServiceAddress { get;}
         public BaseClient(IConfiguration configuration)
         {
-
-           
-            
+                     
             Client = new HttpClient
             {
-                BaseAddress = new Uri(configuration["clientAddress"])
-                
+                BaseAddress = new Uri(configuration["clientAddress"])               
             };
 
             Client.DefaultRequestHeaders.Accept.Clear();
             Client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
+
+            
         }
 
         protected HttpResponseMessage Delete(string url)
@@ -57,7 +55,7 @@ namespace Services.WebStore.Clients
       
         protected HttpResponseMessage Post<T> (string url, T value)
         {
-            return PostAsync<T>(url, value). Result;
+            return PostAsync<T>(url, value).Result;
         }
 
         public async Task<HttpResponseMessage> PostAsync<T>(string url, T value)
@@ -74,7 +72,7 @@ namespace Services.WebStore.Clients
 
         public async Task<HttpResponseMessage> PutAsync<T>(string url, T value)
         {
-            var response = await Client.PostAsJsonAsync(url, value);
+            var response = await Client.PutAsJsonAsync(url, value);
 
             return response;
         }
