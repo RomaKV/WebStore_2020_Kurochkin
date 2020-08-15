@@ -1,10 +1,6 @@
 ﻿using Common.WebStore.DomainNew.Dto;
 using Common.WebStore.DomainNew.Entities;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
 
 namespace Common.WebStore.DomainNew.Helpers
 {
@@ -26,7 +22,6 @@ namespace Common.WebStore.DomainNew.Helpers
             };
 
             return result;
-
 
         }
     }

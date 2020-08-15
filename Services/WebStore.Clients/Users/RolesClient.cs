@@ -11,6 +11,7 @@ namespace Services.WebStore.Clients.Users
 {
     public class RolesClient : BaseClient, IRoleStore<IdentityRole>
     {
+       
         public RolesClient(IConfiguration configuration) : base(configuration)
         {
             this.ServiceAddress = "api/roles";
@@ -19,11 +20,12 @@ namespace Services.WebStore.Clients.Users
         protected override string ServiceAddress { get; }
 
         public async Task<IdentityResult> CreateAsync(IdentityRole role, CancellationToken cancellationToken)
-        {
+        {         
             var request = await PostAsync($"{this.ServiceAddress}", role);
             var result = await request.Content.ReadAsAsync<bool>();
-            return result ? IdentityResult.Success : IdentityResult.Failed();
+            return result ? IdentityResult.Success : IdentityResult.Failed();       
         }
+
 
         public async Task<IdentityResult> DeleteAsync(IdentityRole role, CancellationToken cancellationToken)
         {
@@ -32,10 +34,12 @@ namespace Services.WebStore.Clients.Users
             return result ? IdentityResult.Success : IdentityResult.Failed();
         }
 
+
         public void Dispose()
         {
             Client.Dispose();
         }
+
 
         public async Task<IdentityRole> FindByIdAsync(string roleId, CancellationToken cancellationToken)
         {
