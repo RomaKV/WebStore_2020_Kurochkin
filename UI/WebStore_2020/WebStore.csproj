@@ -6,11 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Infrastructure\Services\CookieCartService.cs" />
-    <Compile Remove="Infrastructure\Services\InMemoryEmployeeService.cs" />
-    <Compile Remove="Infrastructure\Services\InMemoryProductService.cs" />
-    <Compile Remove="Infrastructure\Services\SqlOrdersService.cs" />
-    <Compile Remove="Infrastructure\Services\SqlProductService.cs" />
+    <Compile Remove="Infrastructure\Services\**" />
+    <Content Remove="Infrastructure\Services\**" />
+    <EmbeddedResource Remove="Infrastructure\Services\**" />
+    <None Remove="Infrastructure\Services\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,7 +24,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Infrastructure\Services\" />
+    <Folder Include="Logs\" />
   </ItemGroup>
 
   <ItemGroup>
