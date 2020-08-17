@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using Services.WebStore.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -17,28 +18,29 @@ namespace UI.WebStore.Controllers
         private readonly IStudentsService studentService;
         private readonly ILogger<HomeController> logger;
 
-        public  HomeController(IValuesService valuesService, IStudentsService studentService, ILogger<HomeController> logger)
+        public HomeController(IValuesService valuesService, IStudentsService studentService,
+            ILogger<HomeController> logger)
         {
             this.valuesService = valuesService;
             this.studentService = studentService;
             this.logger = logger;
         }
-        
+
         public async Task<IActionResult> Index()
         {
-          
-         
+           
+
             logger?.LogTrace("[TRACE] logger!");
             logger?.LogInformation("[INFO] logger!");
             logger?.LogWarning("[WARN] logger!");
             logger?.LogDebug("[DEBUG] logger!");
             logger?.LogError("[ERROR] logger!");
             logger?.LogCritical("[CRITICAL] logger!");
-            
-            
-            
+
+            throw new ApplicationException("Тест сообщений об ошибках");;
+
             var values = await this.studentService.GetAsync();
-           
+
             return View(values);
         }
 
@@ -79,5 +81,16 @@ namespace UI.WebStore.Controllers
         {
             return View();
         }
-    }
+
+       
+        public IActionResult ErrorStatus(string id)
+        {
+            if (id == "404")
+            {
+                return RedirectToAction($"NotFound");
+            }
+
+            return Content($"Статусный код ошибки: {id}");
+        }
+}
 }
