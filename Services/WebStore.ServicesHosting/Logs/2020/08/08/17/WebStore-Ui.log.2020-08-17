@@ -1,0 +1,36 @@
+2020-08-17 14:14:40,319 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:14:40,334 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 14:14:40,336 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:14:40,336 [1]  - Hosting environment: Development
+
+2020-08-17 14:14:40,337 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:14:40,337 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 14:14:40,444 [4]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:14:40,444 [4]  - [INFO] logger!
+
+2020-08-17 14:14:40,457 [4]  - [WARN] logger!
+
+2020-08-17 14:14:40,459 [4]  - [ERROR] logger!
+
+2020-08-17 14:14:40,461 [4]  - [CRITICAL] logger!
+
+2020-08-17 14:14:44,504 [10]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:14:44,504 [10]  - [INFO] logger!
+
+2020-08-17 14:14:44,506 [10]  - [WARN] logger!
+
+2020-08-17 14:14:44,508 [10]  - [ERROR] logger!
+
+2020-08-17 14:14:44,510 [10]  - [CRITICAL] logger!
+
+2020-08-17 14:14:45,335 [9]  - No type was specified for the decimal column 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+
+2020-08-17 14:14:45,337 [9]  - No type was specified for the decimal column 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+
