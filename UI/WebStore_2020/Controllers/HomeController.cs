@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using Services.WebStore.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using UI.WebStore.Infrastructure;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -14,17 +16,31 @@ namespace UI.WebStore.Controllers
         // GET: /<controller>/
         private readonly IValuesService valuesService;
         private readonly IStudentsService studentService;
+        private readonly ILogger<HomeController> logger;
 
-        public  HomeController(IValuesService valuesService, IStudentsService studentService)
+        public HomeController(IValuesService valuesService, IStudentsService studentService,
+            ILogger<HomeController> logger)
         {
             this.valuesService = valuesService;
             this.studentService = studentService;
+            this.logger = logger;
         }
-        
-        public async Task<IActionResult> IndexAsync()
+
+        public async Task<IActionResult> Index()
         {
-           var values = await this.studentService.GetAsync();
            
+
+            logger?.LogTrace("[TRACE] logger!");
+            logger?.LogInformation("[INFO] logger!");
+            logger?.LogWarning("[WARN] logger!");
+            logger?.LogDebug("[DEBUG] logger!");
+            logger?.LogError("[ERROR] logger!");
+            logger?.LogCritical("[CRITICAL] logger!");
+
+            throw new ApplicationException("Тест сообщений об ошибках");;
+
+            var values = await this.studentService.GetAsync();
+
             return View(values);
         }
 
@@ -65,5 +81,16 @@ namespace UI.WebStore.Controllers
         {
             return View();
         }
-    }
+
+       
+        public IActionResult ErrorStatus(string id)
+        {
+            if (id == "404")
+            {
+                return RedirectToAction($"NotFound");
+            }
+
+            return Content($"Статусный код ошибки: {id}");
+        }
+}
 }

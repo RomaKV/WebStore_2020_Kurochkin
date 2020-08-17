@@ -1,0 +1,364 @@
+2020-08-17 14:14:40,319 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:14:40,334 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 14:14:40,336 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:14:40,336 [1]  - Hosting environment: Development
+
+2020-08-17 14:14:40,337 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:14:40,337 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 14:14:40,444 [4]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:14:40,444 [4]  - [INFO] logger!
+
+2020-08-17 14:14:40,457 [4]  - [WARN] logger!
+
+2020-08-17 14:14:40,459 [4]  - [ERROR] logger!
+
+2020-08-17 14:14:40,461 [4]  - [CRITICAL] logger!
+
+2020-08-17 14:14:44,504 [10]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:14:44,504 [10]  - [INFO] logger!
+
+2020-08-17 14:14:44,506 [10]  - [WARN] logger!
+
+2020-08-17 14:14:44,508 [10]  - [ERROR] logger!
+
+2020-08-17 14:14:44,510 [10]  - [CRITICAL] logger!
+
+2020-08-17 14:14:45,335 [9]  - No type was specified for the decimal column 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+
+2020-08-17 14:14:45,337 [9]  - No type was specified for the decimal column 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+
+2020-08-17 14:43:03,231 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:43:03,238 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 14:43:03,240 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:43:03,240 [1]  - Hosting environment: Development
+
+2020-08-17 14:43:03,242 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:43:03,243 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 14:43:03,346 [5]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:43:03,346 [5]  - [INFO] logger!
+
+2020-08-17 14:43:03,353 [5]  - [WARN] logger!
+
+2020-08-17 14:43:03,356 [5]  - [ERROR] logger!
+
+2020-08-17 14:43:03,358 [5]  - [CRITICAL] logger!
+
+2020-08-17 14:43:05,698 [11]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:43:05,698 [11]  - [INFO] logger!
+
+2020-08-17 14:43:05,700 [11]  - [WARN] logger!
+
+2020-08-17 14:43:05,702 [11]  - [ERROR] logger!
+
+2020-08-17 14:43:05,703 [11]  - [CRITICAL] logger!
+
+2020-08-17 14:43:06,530 [4]  - No type was specified for the decimal column 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+
+2020-08-17 14:43:06,532 [4]  - No type was specified for the decimal column 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+
+2020-08-17 14:48:12,451 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:48:12,459 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 14:48:12,461 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:48:12,461 [1]  - Hosting environment: Development
+
+2020-08-17 14:48:12,463 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:48:12,463 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 14:48:12,576 [10]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 14:48:12,576 [10]  - [INFO] logger!
+
+2020-08-17 14:48:12,582 [10]  - [WARN] logger!
+
+2020-08-17 14:48:12,584 [10]  - [ERROR] logger!
+
+2020-08-17 14:48:12,587 [10]  - [CRITICAL] logger!
+
+2020-08-17 15:24:53,065 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:24:53,074 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 15:24:53,076 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:24:53,076 [1]  - Hosting environment: Development
+
+2020-08-17 15:24:53,078 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:24:53,078 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 15:24:53,176 [4]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:24:53,176 [4]  - [INFO] logger!
+
+2020-08-17 15:24:53,184 [4]  - [WARN] logger!
+
+2020-08-17 15:24:53,186 [4]  - [ERROR] logger!
+
+2020-08-17 15:24:53,188 [4]  - [CRITICAL] logger!
+
+2020-08-17 15:30:47,743 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:30:47,751 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 15:30:47,753 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:30:47,753 [1]  - Hosting environment: Development
+
+2020-08-17 15:30:47,755 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:30:47,755 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 15:30:47,865 [4]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:30:47,865 [4]  - [INFO] logger!
+
+2020-08-17 15:30:47,872 [4]  - [WARN] logger!
+
+2020-08-17 15:30:47,874 [4]  - [ERROR] logger!
+
+2020-08-17 15:30:47,876 [4]  - [CRITICAL] logger!
+
+2020-08-17 15:33:53,866 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:33:53,877 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 15:33:53,879 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:33:53,879 [1]  - Hosting environment: Development
+
+2020-08-17 15:33:53,881 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:33:53,881 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 15:33:53,986 [4]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:33:53,986 [4]  - [INFO] logger!
+
+2020-08-17 15:33:53,994 [4]  - [WARN] logger!
+
+2020-08-17 15:33:53,996 [4]  - [ERROR] logger!
+
+2020-08-17 15:33:53,998 [4]  - [CRITICAL] logger!
+
+2020-08-17 15:37:05,617 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:37:05,629 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 15:37:05,631 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:37:05,631 [1]  - Hosting environment: Development
+
+2020-08-17 15:37:05,633 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:37:05,633 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 15:37:05,740 [9]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:37:05,740 [9]  - [INFO] logger!
+
+2020-08-17 15:37:05,747 [9]  - [WARN] logger!
+
+2020-08-17 15:37:05,749 [9]  - [ERROR] logger!
+
+2020-08-17 15:37:05,751 [9]  - [CRITICAL] logger!
+
+2020-08-17 15:40:55,531 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:40:55,542 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 15:40:55,544 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:40:55,544 [1]  - Hosting environment: Development
+
+2020-08-17 15:40:55,546 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:40:55,546 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 15:40:55,649 [4]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:40:55,649 [4]  - [INFO] logger!
+
+2020-08-17 15:40:55,658 [4]  - [WARN] logger!
+
+2020-08-17 15:40:55,661 [4]  - [ERROR] logger!
+
+2020-08-17 15:40:55,663 [4]  - [CRITICAL] logger!
+
+2020-08-17 15:46:36,916 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:46:36,925 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 15:46:36,927 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:46:36,927 [1]  - Hosting environment: Development
+
+2020-08-17 15:46:36,929 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:46:36,929 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 15:46:37,039 [4]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:46:37,040 [4]  - [INFO] logger!
+
+2020-08-17 15:46:37,046 [4]  - [WARN] logger!
+
+2020-08-17 15:46:37,047 [4]  - [ERROR] logger!
+
+2020-08-17 15:46:37,049 [4]  - [CRITICAL] logger!
+
+2020-08-17 15:47:23,703 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:47:23,712 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 15:47:23,714 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:47:23,714 [1]  - Hosting environment: Development
+
+2020-08-17 15:47:23,716 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:47:23,716 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 15:47:23,826 [4]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 15:47:23,827 [4]  - [INFO] logger!
+
+2020-08-17 15:47:23,835 [4]  - [WARN] logger!
+
+2020-08-17 15:47:23,837 [4]  - [ERROR] logger!
+
+2020-08-17 15:47:23,839 [4]  - [CRITICAL] logger!
+
+2020-08-17 16:15:40,852 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:15:40,857 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 16:15:40,858 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:15:40,859 [1]  - Hosting environment: Development
+
+2020-08-17 16:15:40,860 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:15:40,860 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 16:15:42,243 [4]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:15:42,243 [4]  - [INFO] logger!
+
+2020-08-17 16:15:42,250 [4]  - [WARN] logger!
+
+2020-08-17 16:15:42,253 [4]  - [ERROR] logger!
+
+2020-08-17 16:15:42,257 [4]  - [CRITICAL] logger!
+
+2020-08-17 16:17:20,378 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:17:20,384 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 16:17:20,386 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:17:20,386 [1]  - Hosting environment: Development
+
+2020-08-17 16:17:20,387 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:17:20,387 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 16:17:20,463 [9]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:17:20,463 [9]  - [INFO] logger!
+
+2020-08-17 16:17:20,469 [9]  - [WARN] logger!
+
+2020-08-17 16:17:20,471 [9]  - [ERROR] logger!
+
+2020-08-17 16:17:20,472 [9]  - [CRITICAL] logger!
+
+2020-08-17 16:19:32,938 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:19:32,944 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 16:19:32,945 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:19:32,945 [1]  - Hosting environment: Development
+
+2020-08-17 16:19:32,946 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:19:32,946 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 16:19:33,026 [4]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:19:33,026 [4]  - [INFO] logger!
+
+2020-08-17 16:19:33,032 [4]  - [WARN] logger!
+
+2020-08-17 16:19:33,034 [4]  - [ERROR] logger!
+
+2020-08-17 16:19:33,036 [4]  - [CRITICAL] logger!
+
+2020-08-17 16:21:56,466 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:21:56,472 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 16:21:56,474 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:21:56,474 [1]  - Hosting environment: Development
+
+2020-08-17 16:21:56,475 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:21:56,475 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 16:22:41,453 [16]  - Connection ID "18230571327566118924", Request ID "8000000d-0008-fd00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+
+2020-08-17 16:23:26,647 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:23:26,652 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 16:23:26,654 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:23:26,654 [1]  - Hosting environment: Development
+
+2020-08-17 16:23:26,655 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:23:26,655 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 16:25:32,691 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:25:32,697 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 16:25:32,698 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:25:32,698 [1]  - Hosting environment: Development
+
+2020-08-17 16:25:32,700 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:25:32,700 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+
+2020-08-17 16:27:11,724 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:27:11,731 [1]  - Application started. Press Ctrl+C to shut down.
+
+2020-08-17 16:27:11,733 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:27:11,733 [1]  - Hosting environment: Development
+
+2020-08-17 16:27:11,734 [1]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 16:27:11,734 [1]  - Content root path: C:\GreekBrains\WebStore_2020_Home_Work\Services\WebStore.ServicesHosting
+

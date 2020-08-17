@@ -6,15 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Infrastructure\Services\CookieCartService.cs" />
-    <Compile Remove="Infrastructure\Services\InMemoryEmployeeService.cs" />
-    <Compile Remove="Infrastructure\Services\InMemoryProductService.cs" />
-    <Compile Remove="Infrastructure\Services\SqlOrdersService.cs" />
-    <Compile Remove="Infrastructure\Services\SqlProductService.cs" />
+    <Compile Remove="Infrastructure\Services\**" />
+    <Content Remove="Infrastructure\Services\**" />
+    <EmbeddedResource Remove="Infrastructure\Services\**" />
+    <None Remove="Infrastructure\Services\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.447" />
+    <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.6" />
@@ -24,11 +24,12 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Infrastructure\Services\" />
+    <Folder Include="Logs\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\WebStore.DomainNew\WebStore.DomainNew.csproj" />
+    <ProjectReference Include="..\..\Common\WebStore.Logger\WebStore.Logger.csproj" />
     <ProjectReference Include="..\..\Services\WebStore.Clients\WebStore.Clients.csproj" />
     <ProjectReference Include="..\..\Services\WebStore.DAL\WebStore.DAL.csproj" />
     <ProjectReference Include="..\..\Services\WebStore.Interfaces\WebStore.Interfaces.csproj" />
