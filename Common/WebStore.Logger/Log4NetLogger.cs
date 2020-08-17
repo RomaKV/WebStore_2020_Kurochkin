@@ -10,20 +10,16 @@ namespace WebStore.Logger
 {
     public class Log4NetLogger : ILogger
     {
-
-        private readonly string name;
-        private readonly XmlElement xmlElement;
         private readonly ILog log;
         private readonly ILoggerRepository loggerRepository;
 
         public Log4NetLogger(string name, XmlElement xmlElement)
         {
-            this.name = name;
-            this.xmlElement = xmlElement;
+            ILoggerRepository loggerRepository;
             this.loggerRepository = LogManager.CreateRepository(
                  Assembly.GetEntryAssembly(), typeof(log4net.Repository.Hierarchy.Hierarchy));
-
-               log4net.Config.XmlConfigurator.Configure(this.loggerRepository, xmlElement);
+            this.log = LogManager.GetLogger(this.loggerRepository.Name, name);
+            log4net.Config.XmlConfigurator.Configure(this.loggerRepository, xmlElement);
 
         }
 
@@ -110,6 +106,10 @@ namespace WebStore.Logger
            else if (logLevel == LogLevel.Warning)
            {
                return this.log.IsWarnEnabled;
+           }
+           else if (logLevel == LogLevel.Information)
+           {
+               return this.log.IsInfoEnabled;
            }
            else if (logLevel == LogLevel.None)
            {

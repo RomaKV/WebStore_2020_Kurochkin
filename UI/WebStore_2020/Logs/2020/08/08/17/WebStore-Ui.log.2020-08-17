@@ -1,0 +1,12 @@
+
+
+2020-08-17 13:42:29,262 [4]  - Encountered unknown log level Information, writing out as Info
+
+2020-08-17 13:42:29,271 [4]  - [INFO] logger!
+
+2020-08-17 13:42:29,273 [4]  - [WARN] logger!
+
+2020-08-17 13:42:29,275 [4]  - [ERROR] logger!
+
+2020-08-17 13:42:29,276 [4]  - [CRITICAL] logger!
+
