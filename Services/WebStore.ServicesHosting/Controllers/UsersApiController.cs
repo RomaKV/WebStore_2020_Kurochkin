@@ -344,9 +344,6 @@ namespace Services.WebStore.ServicesHosting.Controllers
             return await this.userStore.FindByNameAsync(normalizedUserName);
         }
 
-        public  void Dispose()
-        {
-            
-        }
+       
     }
 }

@@ -12,6 +12,9 @@ using System;
 using WebStore.Logger;
 using WebStore.Services;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Swagger;
+
 
 namespace Services.WebStore.ServicesHosting
 {
@@ -29,7 +32,8 @@ namespace Services.WebStore.ServicesHosting
         {
             services.AddControllers();
 
-           
+            services.AddSwaggerGen(c =>
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "My webStore API", Version = "v1"}));
 
             services.AddDbContext<WebStoreContext>(options => options
                 .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -89,6 +93,13 @@ namespace Services.WebStore.ServicesHosting
         
             if (env.IsDevelopment())
             {
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebStore API v1");
+                });
+                
+                
                 app.UseDeveloperExceptionPage();
             }
 

@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{FC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebStore.Services", "Services\WebStore.Services\WebStore.Services.csproj", "{CE0D3AB7-2AF3-4061-B755-4C231C499A6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStore.Logger", "Common\WebStore.Logger\WebStore.Logger.csproj", "{D61C2AC5-2BEF-41D5-BFAD-151DB9E01474}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebStore.Logger", "Common\WebStore.Logger\WebStore.Logger.csproj", "{D61C2AC5-2BEF-41D5-BFAD-151DB9E01474}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

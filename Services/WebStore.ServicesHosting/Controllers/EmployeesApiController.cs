@@ -28,6 +28,7 @@ namespace Services.WebStore.ServicesHosting.Controllers
             this.employeesService.AddNew(model);
         }
 
+        [NonAction]
         public void Commit()
         {
             
