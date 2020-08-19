@@ -34,7 +34,7 @@ namespace Services.WebStore.ServicesHosting.Controllers
             
         }
 
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
         public void Delete(int id)
         {
             this.employeesService.Delete(id);
@@ -46,7 +46,7 @@ namespace Services.WebStore.ServicesHosting.Controllers
             return this.employeesService.GetAll();
         }
 
-        [HttpGet("id"), ActionName("Get")]
+        [HttpGet("{id}"), ActionName("Get")]
         public EmployeeViewModel GetById(int id)
         {
             return this.employeesService.GetById(id);

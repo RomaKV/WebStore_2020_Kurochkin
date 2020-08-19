@@ -42,7 +42,7 @@ namespace Services.WebStore.Clients
 
         public EmployeeViewModel GetById(int id)
         {
-            var list = this.Get<EmployeeViewModel>(this.ServiceAddress);
+            var list = this.Get<EmployeeViewModel>($"{this.ServiceAddress}/{id}");
             return list;
         }
 
