@@ -18,11 +18,11 @@ namespace UI.WebStore.Controllers
         private readonly IStudentsService studentService;
         private readonly ILogger<HomeController> logger;
 
-        public HomeController(IValuesService valuesService, IStudentsService studentService,
-            ILogger<HomeController> logger)
+        public HomeController(IValuesService valuesService/* IStudentsService studentService,*/
+            /*ILogger<HomeController> logger*/)
         {
             this.valuesService = valuesService;
-            this.studentService = studentService;
+           // this.studentService = studentService;
             this.logger = logger;
         }
 
@@ -37,18 +37,16 @@ namespace UI.WebStore.Controllers
             logger?.LogError("[ERROR] logger!");
             logger?.LogCritical("[CRITICAL] logger!");
 
-            throw new ApplicationException("Тест сообщений об ошибках");;
+           // throw new ApplicationException("Тест сообщений об ошибках");;
 
-            var values = await this.studentService.GetAsync();
+            //var values = await this.studentService.GetAsync();
+
+            var values = await this.valuesService.GetAsync();
 
             return View(values);
         }
 
-        //public IActionResult Index()
-        //{
-        //    //throw new ApplicationException("Ошибочка вышла...");
-        //    return View();
-        //}
+
 
         // GET: /<controller>/blog
         [SimpleActionFilter]
