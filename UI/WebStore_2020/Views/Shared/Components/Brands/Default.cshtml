@@ -1,15 +1,26 @@
-﻿@model IEnumerable<Common.WebStore.ViewModels.BrandViewModel>
+﻿@model Common.WebStore.ViewModels.BrandCompleteViewModel
 
 <div class="brands_products">
     <!--brands_products-->
     <h2>Бренды</h2>
     <div class="brands-name">
         <ul class="nav nav-pills nav-stacked">
-            @foreach (var brand in Model)
+
+
+
+            @foreach (var brand in Model.Brands)
             {
-                <li><a href="#"> <span class="pull-right">
-                    (@brand.ProductsCount)</span>@brand.Name</a></li>
+                var isActiveCssClass = (brand.Id == Model.CurrentBrandId) ? "active" : "";
+                <h4 class="@isActiveCssClass">
+                    <li>
+                        <a asp-route-brandId="@brand.Id">
+                            <span class="pull-right">
+                                (@brand.ProductsCount)
+                            </span>@brand.Name
+                        </a>
+                    </li>
+                 </h4>
             }
-        </ul>
+            </ul>
     </div>
 </div><!--/brands_products-->
