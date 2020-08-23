@@ -1,6 +1,6 @@
 ﻿<div class="left-sidebar">
     @*@await Component.InvokeAsync("Categories")*@
-    <vc:categories></vc:categories>
+    <vc:categories category-id="@Context.Request.Query["CategoryId"].ToString()"></vc:categories>
 
     <vc:Brands />
     @*  @await Component.InvokeAsync("Brands")*@
