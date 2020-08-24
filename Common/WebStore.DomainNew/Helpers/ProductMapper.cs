@@ -2,6 +2,7 @@
 using Common.WebStore.DomainNew.Dto;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Text;
 
@@ -34,6 +35,12 @@ namespace Common.WebStore.DomainNew.Helpers
                     Name = p.Brand.Name
                 };
             }
+
+            product.Category = new SectionDto
+            {
+                Id = p.CategoryId,
+                Name =  p?.Category?.Name ?? ""
+            };
 
             return product;
         }

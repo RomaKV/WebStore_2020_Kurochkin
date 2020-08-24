@@ -5,12 +5,7 @@
     <RootNamespace>UI.WebStore</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Infrastructure\Services\**" />
-    <Content Remove="Infrastructure\Services\**" />
-    <EmbeddedResource Remove="Infrastructure\Services\**" />
-    <None Remove="Infrastructure\Services\**" />
-  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.447" />

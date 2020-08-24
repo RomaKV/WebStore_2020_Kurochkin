@@ -43,6 +43,18 @@ namespace Services.WebStore.ServicesHosting.Controllers
             return this.productService.GetProductById(id);
         }
 
+        [HttpGet("categories/{id}")]
+        public Category GetCategoryById(int id)
+        {
+           return this.productService.GetCategoryById(id);
+        }
+
+        [HttpGet("brands/{id}")]
+        public Brand GetBrandById(int id)
+        {
+            return this.productService.GetBrandById(id);
+        }
+
         [HttpPost, ActionName("Post")]
         public IEnumerable<ProductDto> GetProducts([FromBody]ProductFilter filter)
         {

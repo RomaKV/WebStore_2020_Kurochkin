@@ -19,7 +19,12 @@ namespace Services.WebStore.Clients
         }
 
         protected override string ServiceAddress { get; }
-   
+
+        public Brand GetBrandById(int id)
+        {
+            return Get<Brand>($"{this.ServiceAddress}/brands/{id}");
+        }
+
         public IEnumerable<BrandDto> GetBrands()
         {
             return Get<List<BrandDto>>($"{this.ServiceAddress}/brands");
@@ -32,7 +37,7 @@ namespace Services.WebStore.Clients
 
         public ProductDto GetProductById(int id)
         {
-            return Get<ProductDto>($"{this.ServiceAddress}/products/{id}");
+            return Get<ProductDto>($"{this.ServiceAddress}/{id}");
         }
 
         public IEnumerable<ProductDto> GetProducts(ProductFilter filter)
@@ -42,7 +47,9 @@ namespace Services.WebStore.Clients
            
         }
 
-
-        
+        public Category GetCategoryById(int id)
+        {
+            return Get<Category>($"{this.ServiceAddress}/categories/{id}");
+        }
     }
 }

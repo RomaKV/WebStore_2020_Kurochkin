@@ -46,8 +46,8 @@ namespace WebStore.Services
         public ProductDto GetProductById(int id)
         {
           var product = _context.Products
-                // .Include(p => p.Category) // жадная загрузка (Eager Load) для категорий
-                // .Include(p => p.Brand) // жадная загрузка (Eager Load) для брендов
+                 .Include(p => p.Category) // жадная загрузка (Eager Load) для категорий
+                 .Include(p => p.Brand) // жадная загрузка (Eager Load) для брендов
                  .FirstOrDefault(p => p.Id == id);
 
             if (product != null)
@@ -64,6 +64,16 @@ namespace WebStore.Services
             //    .Include(p => p.Brand) // жадная загрузка (Eager Load) для брендов
             //    .FirstOrDefault(p => p.Id == id)?.ToDto();
 
+        }
+
+        public Category GetCategoryById(int id)
+        {
+            return _context.Categories.FirstOrDefault(s => s.Id == id);
+        }
+
+        public Brand GetBrandById(int id)
+        {
+            return _context.Brands.FirstOrDefault(s => s.Id == id);
         }
     }
 }
