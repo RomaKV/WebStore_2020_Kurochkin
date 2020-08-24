@@ -13,5 +13,6 @@ namespace Common.WebStore.DomainNew.Dto
         public decimal Price { get; set; }
         public BrandDto Brand { get; set; }
         public string ImageUrl { get; set; }
+        public SectionDto Category { get; set; }
     }
 }

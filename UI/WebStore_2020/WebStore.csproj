@@ -5,12 +5,7 @@
     <RootNamespace>UI.WebStore</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Infrastructure\Services\**" />
-    <Content Remove="Infrastructure\Services\**" />
-    <EmbeddedResource Remove="Infrastructure\Services\**" />
-    <None Remove="Infrastructure\Services\**" />
-  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.447" />
@@ -19,6 +14,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.6" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+    <PackageReference Include="SimpleMvcSitemap" Version="4.0.0" />
   </ItemGroup>
 
   <ItemGroup>

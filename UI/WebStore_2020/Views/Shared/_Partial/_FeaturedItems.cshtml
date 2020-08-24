@@ -1,6 +1,12 @@
-﻿@model IEnumerable<Common.WebStore.ViewModels.ProductViewModel>
+﻿@using Microsoft.Extensions.Configuration
+@model IEnumerable<Common.WebStore.ViewModels.ProductViewModel>
 
-    <div class="features_items">
+@{
+    var isBrand = Context.Request.Query.ContainsKey("brandId");
+    var brandRoutePath = isBrand ? "asp-route-fromBrand='true'" : "";
+}
+
+ <div class="features_items">
         <!--features_items-->
         <h2 class="title text-center">Features Items</h2>
         @if (Model != null)
@@ -12,7 +18,7 @@
                     <div class="single-products">
                         <div class="productinfo text-center">
                            
-                            <a asp-controller="Catalog" asp-action="ProductDetails" asp-route-id="@item?.Id">
+                            <a @brandRoutePath asp-controller="Catalog" asp-action="ProductDetails" asp-route-id="@item?.Id">
                                 <img src="~/images/home/@item?.ImageUrl" alt="" />
                             </a>
                             
