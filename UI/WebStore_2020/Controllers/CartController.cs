@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Services.WebStore.Infrastructure.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 
 namespace UI.WebStore.Controllers
 {
@@ -48,10 +49,12 @@ namespace UI.WebStore.Controllers
             return RedirectToAction("Details");
         }
 
-        public IActionResult AddToCart(int id, string returnUrl)
+        public IActionResult AddToCart(int id)
         {
             _cartService.AddToCart(id);
-            return Redirect(returnUrl);
+            return Json(new {
+                id, message = "Товар добавлен в корзину"
+            });
         }
 
         [HttpPost, ValidateAntiForgeryToken]
@@ -97,5 +100,7 @@ namespace UI.WebStore.Controllers
             @ViewBag.OrderId = id;
             return View();
         }
+
+        public IActionResult GetCartView() => ViewComponent("CartSummary");
     }
 }
