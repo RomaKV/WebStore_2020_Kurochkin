@@ -8,6 +8,7 @@
         $.extend(Cart._properties, properties);
 
         $('a.callAddToCart').on('click', Cart.addToCart);
+        $('a.cart_quantity_delete').on('click', Cart.removeFromCart);
     },
 
     addToCart: function(event) {
@@ -37,5 +38,21 @@
                 button.tooltip('destroy');
             },
             500);
+    },
+
+    removeFromCart: function(event) {
+        var button = $(this);
+        event.preventDefault();
+        var id = button.data('id');
+        $.get(Cart._properties.removeFromCartLink + '/' + id)
+            .done(function() {
+                button.closest('tr').remove();
+                Cart.refreshCartView();
+            })
+            .fail(function() {
+                    console.log('removeFromCart error');
+
+                }
+            );
     }
 }
