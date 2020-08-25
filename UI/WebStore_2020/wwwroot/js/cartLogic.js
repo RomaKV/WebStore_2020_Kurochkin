@@ -9,6 +9,7 @@
 
         $('a.callAddToCart').on('click', Cart.addToCart);
         $('a.cart_quantity_delete').on('click', Cart.removeFromCart);
+        $('a.cart_quantity_up').on('click', Cart.incrementItem);
     },
 
     addToCart: function(event) {
@@ -54,5 +55,31 @@
 
                 }
             );
+    },
+
+    refreshPrice: function(container) {
+        var quantity = parseInt($('cart_quantity_input', container).val());
+        var price = parseFloat($('cart_price', container).data('rice'));
+        var totalPrice = quantity * price;
+        var value = totalPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+
+        $('.cart_total_price', container).data('price', totalPrice);
+        $('.cart_total_price', container).html(value);
+    },
+
+    incrementItem: function(event) {
+        var button = $(this);
+        var container = button.closest('tr');
+        event.preventDefault();
+        var id = button.data('id');
+
+        $.get(Cart._properties.addToCartLink + '/' + id).done(function() {
+            var value = parseInt($('.cart_quantity_input', container).val());
+            $('.cart_quantity_input', container).val(value + 1);
+            Cart.refreshCartView();
+        }).fail(function() { console.log('incrementItem error'); });
     }
+
+
+
 }
