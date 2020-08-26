@@ -41,13 +41,15 @@ namespace WebStore
                 //options.Filters.Add(new SimpleActionFilter());
             });
 
-            //services.AddDbContext<WebStoreContext>(options => options
-            //    .UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<WebStoreContext>(options => options
+                .UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
 
 
             services.AddIdentity<User, IdentityRole>()
                .AddEntityFrameworkStores<WebStoreContext>()
                .AddDefaultTokenProviders();
+
+       
 
             services.AddTransient<IUserStore<User>, CustomUserStore>();
             services.AddTransient<IUserRoleStore<User>, CustomUserStore>();
