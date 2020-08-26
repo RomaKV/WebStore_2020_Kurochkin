@@ -33,21 +33,37 @@
         @RenderBody()
     </div>
 
-    @await Html.PartialAsync("_Footer")
+   
 
-    <environment include="Development">
+@*<environment include="Development">
         <script src="~/js/price-range.js"></script>
         <script src="~/js/jquery.prettyPhoto.js"></script>
         <script src="~/js/main.js"></script>
+        <script src="~/js/cartLogic.js"></script>
     </environment>
-    <environment exclude="Development">
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
+<environment exclude="Development">
+    <script src="~/js/site.min.js" asp-append-version="true"></script>
+</environment>*@
 
-    <script src="~/lib/jquery/jquery.min.js"></script>
+
+@*<script src="~/js/site.min.js" asp-append-version="true"></script>*@
+
+
+<script src="~/lib/jquery/jquery.min.js"></script>
+<script src="~/js/cartLogic.js"></script>
     <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
-    <script src="~/js/jquery.scrollUp.min.js"></script>
-    <!--Секция для отображения кастомных скриптов, если понадобятся-->
-    @RenderSection("scripts", false)
+<script src="~/js/jquery.scrollUp.min.js"></script>
+
+<script type="text/javascript">
+    $(function() {
+        Cart.init({
+            addToCartLink: '@Url.Action("AddToCart", "Cart")',
+            getCartViewLink: '@Url.Action("GetCartView", "Cart")',
+            removeFromCartLink: '@Url.Action("RemoveFromCart","Cart")'
+        });
+    });
+</script>
+<!--Секция для отображения кастомных скриптов, если понадобятся-->
+     @*@RenderSection("scripts", false)*@
 </body>
 </html>

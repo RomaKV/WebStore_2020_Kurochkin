@@ -409,7 +409,7 @@ namespace WebStore.Services
             return _brands.Select(b => b.ToDto()).ToList();
         }
 
-        public IEnumerable<ProductDto> GetProducts(ProductFilter filter)
+        public PagedProductDto GetProducts(ProductFilter filter)
         {
             var products = _products;
 
@@ -426,7 +426,26 @@ namespace WebStore.Services
                     .ToList();
             }
 
-            return products.Select(p => p.ToDto()).ToList();
+            var model = new PagedProductDto {TotalCount = products.Count()};
+
+            if (filter.PageSize != null)
+            {
+                model.Products = products
+                    .OrderBy(p => p.Order)
+                    .Skip((filter.Page - 1) * (int)filter.PageSize)
+                    .Take((int)filter.PageSize)
+                    .Select(p => p.ToDto()).ToList();
+
+            }
+            else
+            {
+                model.Products = products
+                    .OrderBy(p => p.Order)
+                    .Select(p => p.ToDto()).ToList();
+
+            }
+
+            return model;
         }
 
         public ProductDto GetProductById(int id)

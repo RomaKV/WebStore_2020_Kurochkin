@@ -1,10 +1,12 @@
-﻿using Common.WebStore.Domain;
+﻿using System.Collections.Generic;
+using Common.WebStore.Domain;
 using Common.WebStore.DomainNew.Dto;
 using Common.WebStore.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Services.WebStore.Infrastructure.Interfaces;
 using System.Linq;
+using Microsoft.Extensions.Configuration;
 using UI.WebStore.Controllers;
 using Xunit;
 using Assert = Xunit.Assert;
@@ -15,10 +17,22 @@ namespace WebStore.Tests
     public class CatalogControllerTests
     {
         //private readonly CatalogController controller;
-        private readonly ProductDto[] testProducts;
+        private readonly PagedProductDto testProducts;
+        private readonly IConfiguration configuration;
         public CatalogControllerTests()
         {
-            testProducts = new[]
+
+            var builder = new ConfigurationBuilder()
+                .AddInMemoryCollection(new Dictionary<string, string>
+                {
+                    { "PageSize", "3"},
+                });
+
+            this.configuration = builder.Build();
+
+
+            testProducts = new PagedProductDto {
+            Products = new[]
             {
                 new ProductDto {
                     Id = 1,
@@ -44,6 +58,8 @@ namespace WebStore.Tests
                         Name = "Nike"
                     }
                 }
+            },
+            TotalCount = 2
             };
 
         }
@@ -56,22 +72,24 @@ namespace WebStore.Tests
         {
             //Arrange
             var mockService = new Mock<IProductService>();
-            mockService.Setup(p => p.GetProductById(this.testProducts[index].Id)).Returns(this.testProducts[index]);
-            var controller = new CatalogController(mockService.Object);
+            int id = this.testProducts.Products.ToArray()[index].Id;
+            var expected = this.testProducts.Products.ToArray()[index];
+            mockService.Setup(p => p.GetProductById(id)).Returns(this.testProducts.Products.ToArray()[index]);
+            var controller = new CatalogController(mockService.Object, this.configuration);
 
             // Act
-            var result = controller.ProductDetails(this.testProducts[index].Id);
+            var result = controller.ProductDetails(id);
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
             var model = Assert.IsAssignableFrom<ProductViewModel>(viewResult.ViewData.Model);
             Assert.IsType<ProductViewModel>(model);
-            Assert.Equal(this.testProducts[index].Name, model.Name);
-            Assert.Equal(this.testProducts[index].Brand.Name, model.Brand);
-            Assert.Equal(this.testProducts[index].ImageUrl, model.ImageUrl);
-            Assert.Equal(this.testProducts[index].Id, model.Id);
-            Assert.Equal(this.testProducts[index].Order, model.Order);
-            Assert.Equal(this.testProducts[index].Price, model.Price);
+            Assert.Equal(expected.Name, model.Name);
+            Assert.Equal(expected.Brand.Name, model.Brand);
+            Assert.Equal(expected.ImageUrl, model.ImageUrl);
+            Assert.Equal(expected.Id, model.Id);
+            Assert.Equal(expected.Order, model.Order);
+            Assert.Equal(expected.Price, model.Price);
 
         }
 
@@ -80,7 +98,7 @@ namespace WebStore.Tests
         {
             var mockService = new Mock<IProductService>();
             mockService.Setup(p => p.GetProductById(10)).Returns((ProductDto)null);
-            var controller = new CatalogController(mockService.Object);
+            var controller = new CatalogController(mockService.Object, this.configuration);
 
             // Act
             var result = controller.ProductDetails(10);
@@ -97,7 +115,7 @@ namespace WebStore.Tests
             //Arrange
             var mockService = new Mock<IProductService>();
             mockService.Setup(p => p.GetProducts(It.IsAny<ProductFilter>())).Returns(this.testProducts);
-            var controller = new CatalogController(mockService.Object);
+            var controller = new CatalogController(mockService.Object, this.configuration);
 
             // Act
             var result = controller.Shop(3, 1);

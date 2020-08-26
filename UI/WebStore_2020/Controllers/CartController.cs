@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Services.WebStore.Infrastructure.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 
 namespace UI.WebStore.Controllers
 {
@@ -33,13 +34,21 @@ namespace UI.WebStore.Controllers
         public IActionResult DecrementFromCart(int id)
         {
             _cartService.DecrementFromCart(id);
-            return RedirectToAction("Details");
+            return Json(new
+            {
+                id,
+                message = "Товар удален из корзины"
+            });
         }
 
         public IActionResult RemoveFromCart(int id)
         {
             _cartService.RemoveFromCart(id);
-            return RedirectToAction("Details");
+            return Json(new
+            {
+                id,
+                message = "Товар удален из корзины"
+            });
         }
 
         public IActionResult RemoveAll()
@@ -48,10 +57,12 @@ namespace UI.WebStore.Controllers
             return RedirectToAction("Details");
         }
 
-        public IActionResult AddToCart(int id, string returnUrl)
+        public IActionResult AddToCart(int id)
         {
             _cartService.AddToCart(id);
-            return Redirect(returnUrl);
+            return Json(new {
+                id, message = "Товар добавлен в корзину"
+            });
         }
 
         [HttpPost, ValidateAntiForgeryToken]
@@ -97,5 +108,7 @@ namespace UI.WebStore.Controllers
             @ViewBag.OrderId = id;
             return View();
         }
+
+        public IActionResult GetCartView() => ViewComponent("CartSummary");
     }
 }

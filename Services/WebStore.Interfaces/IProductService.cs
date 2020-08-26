@@ -9,7 +9,7 @@ namespace Services.WebStore.Infrastructure.Interfaces
     {
         IEnumerable<Category> GetCategories();
         IEnumerable<BrandDto> GetBrands();
-        IEnumerable<ProductDto> GetProducts(ProductFilter filter);
+        PagedProductDto GetProducts(ProductFilter filter);
       
         /// <summary>
         /// Получить товар по Id
