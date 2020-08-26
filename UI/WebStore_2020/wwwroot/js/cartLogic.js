@@ -23,7 +23,7 @@
         }).fail(function() { console.log('addToCart error'); });
     },
 
-    refreshCartView() {
+    refreshCartView: function() {
         var container = $('#cartContainer');
 
         $.get(Cart._properties.getCartViewLink).done(function(result) {

@@ -53,6 +53,7 @@ namespace UI.WebStore.TagHelpers
             var a = new TagBuilder("a");
             if (pageNumber == PageModel.PageNumber)
             {
+                a.MergeAttribute("data-page", PageModel.PageNumber.ToString());
                 li.AddCssClass("active");
 
             }
@@ -60,7 +61,12 @@ namespace UI.WebStore.TagHelpers
             {
                 PageUrlValues["page"] = pageNumber;
                 a.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
+                foreach (var (key, value) in PageUrlValues.Where(
+                    p=>p.Value != null))
 
+                {
+                    a.MergeAttribute($"data-{key}", value.ToString());
+                }
             }
 
             a.InnerHtml.AppendHtml(pageNumber.ToString());
