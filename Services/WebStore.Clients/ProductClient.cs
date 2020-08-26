@@ -40,10 +40,10 @@ namespace Services.WebStore.Clients
             return Get<ProductDto>($"{this.ServiceAddress}/{id}");
         }
 
-        public IEnumerable<ProductDto> GetProducts(ProductFilter filter)
+        public PagedProductDto GetProducts(ProductFilter filter)
         {
             return Post(this.ServiceAddress, filter).
-                Content.ReadAsAsync<IEnumerable<ProductDto>>().Result;
+                Content.ReadAsAsync<PagedProductDto>().Result;
            
         }
 

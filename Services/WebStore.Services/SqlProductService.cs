@@ -28,7 +28,7 @@ namespace WebStore.Services
             return _context.Brands.Select(b => b.ToDto()).ToList();
         }
 
-        public IEnumerable<ProductDto> GetProducts(ProductFilter filter)
+        public PagedProductDto GetProducts(ProductFilter filter)
         {
             var query = _context.Products
                 .Include(p => p.Category) // жадная загрузка (Eager Load) для категорий
@@ -40,7 +40,25 @@ namespace WebStore.Services
             if (filter.CategoryId.HasValue)
                 query = query.Where(c => c.CategoryId.Equals(filter.CategoryId.Value));
 
-            return query.Select(p => p.ToDto()).ToList();
+            var model = new PagedProductDto { TotalCount = query.Count() };
+            if (filter.PageSize != null)
+            {
+                model.Products = query
+                    .OrderBy(p => p.Order)
+                    .Skip((filter.Page - 1) * (int)filter.PageSize)
+                    .Take((int)filter.PageSize)
+                    .Select(p => p.ToDto()).ToList();
+
+            }
+            else
+            {
+                model.Products = query
+                    .OrderBy(p => p.Order)
+                    .Select(p => p.ToDto()).ToList();
+
+            }
+
+            return model;
         }
 
         public ProductDto GetProductById(int id)
@@ -50,19 +68,9 @@ namespace WebStore.Services
                  .Include(p => p.Brand) // жадная загрузка (Eager Load) для брендов
                  .FirstOrDefault(p => p.Id == id);
 
-            if (product != null)
-            {
-                return product.ToDto();
-            }
-            else
-            {
-                return null;
-            }
-
-            //return _context.Products
-            //    .Include(p => p.Category) // жадная загрузка (Eager Load) для категорий
-            //    .Include(p => p.Brand) // жадная загрузка (Eager Load) для брендов
-            //    .FirstOrDefault(p => p.Id == id)?.ToDto();
+            
+                return product?.ToDto();
+          
 
         }
 
