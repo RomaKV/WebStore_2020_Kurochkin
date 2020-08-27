@@ -49,7 +49,6 @@
         $.get(Cart._properties.removeFromCartLink + '/' + id)
             .done(function() {
                 button.closest('tr').remove();
-                Cart.refreshPrice(container);
                 Cart.refreshCartView();
             })
             .fail(function() {
@@ -100,7 +99,7 @@
         event.preventDefault();
         var id = button.data('id');
 
-        $.get(Cart._properties.decrementFromCartLink + '/' + id).done(function () {
+        $.get(Cart._properties.decrementLink + '/' + id).done(function () {
             var value = parseInt($('.cart_quantity_input', container).val());
             value = value - 1;
             if (value > 0) {
@@ -115,7 +114,7 @@
                         Cart.refreshCartView();
                     })
                     .fail(function () {
-                            console.log('removeFromCart error');
+                            console.log('dectement cart error');
 
                         }
                 );
