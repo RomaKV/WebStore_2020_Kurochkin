@@ -7,8 +7,20 @@
         </a>
     </span>
     <form method="post" asp-controller="Account" asp-action="Logout" asp-antiforgery="true">
+        
+        @if (User.IsInRole("Admins"))
+        {
+            <a asp-action="Index" asp-controller="Home" asp-area="Admin" class="btn btn-sm btn-link">
+                Админка
+            </a>
+        } 
+
         <input type="submit" value="Выход" class="btn btn-default" />
+
     </form>
+
+    
+
 }
 else
 {
